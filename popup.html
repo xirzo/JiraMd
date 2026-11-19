@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      padding: 20px;
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #1e1e1e;
+      color: #e0e0e0;
+      overflow: hidden;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    body.light {
+      background: #f8f9fa;
+      color: #333;
+    }
+
+    .theme-toggle {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      user-select: none;
+      z-index: 10;
+    }
+
+    .toggle-switch {
+      width: 40px;
+      height: 22px;
+      background: #3a3a3a;
+      border-radius: 11px;
+      position: relative;
+      transition: background 0.3s;
+    }
+
+    body.light .toggle-switch {
+      background: #ddd;
+    }
+
+    .toggle-slider {
+      width: 18px;
+      height: 18px;
+      background: #e0e0e0;
+      border-radius: 50%;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      transition: transform 0.3s;
+    }
+
+    body.light .toggle-slider {
+      background: #fff;
+      transform: translateX(18px);
+    }
+
+    .toggle-icon {
+      font-size: 14px;
+      opacity: 0.5;
+      transition: opacity 0.3s;
+      color: inherit;
+    }
+
+    .theme-toggle:hover .toggle-icon {
+      opacity: 0.8;
+    }
+
+    .toggle-icon.moon {
+      font-weight: bold;
+    }
+
+    .toggle-icon.sun {
+      font-weight: normal;
+    }
+
+    .text-areas-holder {
+      display: flex;
+      gap: 16px;
+      width: 100%;
+      height: 100%;
+      padding-top: 30px;
+      align-items: center;
+    }
+
+    .textarea-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      height: 100%;
+    }
+
+    .textarea-title {
+      font-size: 12px;
+      font-weight: 500;
+      color: #a0a0a0;
+      transition: color 0.3s;
+    }
+
+    body.light .textarea-title {
+      color: #666;
+    }
+
+    .arrow-icon {
+      font-size: 20px;
+      color: #6a6a6a;
+      opacity: 0.6;
+      transition: color 0.3s, opacity 0.3s;
+      flex-shrink: 0;
+      margin-top: 20px;
+    }
+
+    body.light .arrow-icon {
+      color: #999;
+    }
+
+    textarea {
+      flex: 1;
+      padding: 12px;
+      border: 1px solid #3a3a3a;
+      border-radius: 6px;
+      font-family: 'SF Mono', Monaco, monospace;
+      font-size: 13px;
+      line-height: 1.5;
+      resize: none;
+      background: #2d2d2d;
+      color: #e0e0e0;
+      transition: border-color 0.2s, background 0.3s, color 0.3s;
+    }
+
+    body.light textarea {
+      background: white;
+      color: #333;
+      border-color: #ddd;
+    }
+
+    textarea:focus {
+      outline: none;
+      border-color: #4a9eff;
+      box-shadow: 0 0 0 3px rgba(74, 158, 255, 0.15);
+    }
+
+    body.light textarea:focus {
+      border-color: #0066cc;
+      box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+    }
+
+    textarea::placeholder {
+      color: #6a6a6a;
+    }
+
+    body.light textarea::placeholder {
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+  <div class="theme-toggle" id="theme-toggle">
+    <span class="toggle-icon moon">●</span>
+    <div class="toggle-switch">
+      <div class="toggle-slider"></div>
+    </div>
+    <span class="toggle-icon sun">○</span>
+  </div>
+
+  <div class="text-areas-holder">
+      <div class="textarea-container">
+        <div class="textarea-title">Jira Markdown</div>
+        <textarea id="jira-md-jira-text" name="comment" rows="5" cols="40" placeholder="Write your message here..."></textarea>
+      </div>
+
+      <div class="arrow-icon">⇄</div>
+
+      <div class="textarea-container">
+        <div class="textarea-title">Markdown</div>
+        <textarea id="jira-md-markdown-text" name="comment" rows="5" cols="40" placeholder="Write your message here..."></textarea>
+      </div>
+  </div>
+
+  <script src="jira-md.js"></script>
+</body>
+</html>

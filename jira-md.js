@@ -151,7 +151,6 @@ function parseJiraMarkdown(text) {
       continue;
     }
     
-    // Paragraph or inline text
     if (line.trim()) {
       ast.push({ type: 'paragraph', text: line });
     } else {
@@ -213,7 +212,6 @@ function parseMarkdown(text) {
       continue;
     }
     
-    // Paragraph or inline text
     if (line.trim()) {
       ast.push({ type: 'paragraph', text: line });
     } else {

@@ -3,6 +3,14 @@
   "name": "Jira Markdown",
   "version": "1.0",
   "description": "Translates Jira Markdown to regular Markdown and vice-versa",
+  "browser_specific_settings": {
+     "gecko": {
+       "id": "jira-md@example.com",
+       "data_collection_permissions": {
+           "required": ["none"]
+       }
+     }
+  },
   "icons": {
     "16": "icons/border16.png",
     "32": "icons/border32.png",
